@@ -21,9 +21,16 @@ weatherData(city)}
     function weatherData(city){
         const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
         fetch(apiUrl).then(response => {
+            
             return response.json();
         })
-        .then(data=>{
+        .then(data=>{ 
+            if(data.error){
+                displayError();
+                console.log("could not get data")
+            }
+            else{
+            weatherCard.textContent = "";
             console.log(data.location.name)
             cityName.textContent = data.location.name;
               console.log(data.current.temp_c)
@@ -31,7 +38,19 @@ weatherData(city)}
               console.log(data.current.condition.text)
               weatherDescription.textContent = data.current.condition.text;
             console.log(data);
-        })
+
+    }
+    })
+    .catch(error =>{
+        console.error(error)
+    })
+
         console.log(apiUrl);
      console.log("i got the city name")
+    }
+    function displayError(){
+        weatherCard.textContent = "";
+        const error = document.createElement("h2")
+        error.innerHTML = "could not get the data"
+        weatherCard.appendChild(error);
     }
