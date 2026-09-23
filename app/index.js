@@ -14,5 +14,10 @@
         }
         else{
         const city = searchCity.value.trim();
-    console.log(city);}
+    console.log(city);
+weatherData(city)}
     });
+
+    function weatherData(city){
+     console.log("i got the city name")
+    }
