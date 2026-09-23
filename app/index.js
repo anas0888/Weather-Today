@@ -5,7 +5,7 @@
     const weatherTemperature = document.querySelector(".temperature");
     const weatherDescription = document.querySelector(".description");
     const searchCity = document.querySelector(".searchCity");
-
+    const apiKey = "75b162da8f9146a493d60222261909"
     searchForm.addEventListener("submit",(event)=>{
         event.preventDefault();
         console.log("form submitted");
@@ -19,5 +19,17 @@ weatherData(city)}
     });
 
     function weatherData(city){
+        const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`
+        fetch(apiUrl).then(response => {
+            return response.json();
+        })
+        .then(data=>{
+            console.log(data.location.name)
+            
+              console.log(data.current.temp_c)
+              console.log(data.current.condition.text)
+            console.log(data);
+        })
+        console.log(apiUrl);
      console.log("i got the city name")
     }
