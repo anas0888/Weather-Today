@@ -1,23 +1,116 @@
-
-.para{
-background-color: aqua;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.weatherCard{
-    border: 2px solid black;
+
+body {
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background:linear-gradient(270deg,#ff7e5f, #feb47b, #86a8e7, #7f7fd5);
-    width: 30%;
-    margin-right: 30%;
-    margin-left: 30%;
-}
-button{
-    background-color: burlywood;
-    margin: 5px;
-    font-size: 1.2em;
-}
-.searchCity{
-    font-size: medium;
+    padding: 20px;
+
+    font-family: Arial, sans-serif;
+    background: #eef2f5;
+    color: #1f2933;
 }
 
+.weatherCard {
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+
+    background: #ffffff;
+    border-radius: 24px;
+
+    box-shadow: 0 15px 40px rgba(31, 41, 51, 0.10);
+
+    text-align: center;
+}
+
+/* Search */
+
+.searchForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.searchCity {
+    flex: 1;
+    min-width: 0;
+
+    padding: 13px 16px;
+
+    border: 1px solid #d8dee5;
+    border-radius: 12px;
+
+    font-size: 15px;
+    outline: none;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.searchCity:focus {
+    border-color: #7c8da6;
+    box-shadow: 0 0 0 3px rgba(124, 141, 166, 0.12);
+}
+
+.searchBtn {
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #334155;
+    color: white;
+
+    font-size: 15px;
+    cursor: pointer;
+
+    transition: background 0.2s, transform 0.2s;
+}
+
+.searchBtn:hover {
+    background: #1e293b;
+}
+
+.searchBtn:active {
+    transform: translateY(1px);
+}
+
+/* Weather information */
+
+.city {
+    margin-bottom: 12px;
+
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.temperature {
+    margin-bottom: 8px;
+
+    font-size: 56px;
+    font-weight: 300;
+    letter-spacing: -2px;
+}
+
+.description {
+    font-size: 17px;
+    color: #64748b;
+    text-transform: capitalize;
+}
+
+/* Error */
+
+.error {
+    margin-top: 20px;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    color: #b45353;
+}
