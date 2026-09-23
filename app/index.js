@@ -25,9 +25,11 @@ weatherData(city)}
         })
         .then(data=>{
             console.log(data.location.name)
-            
+            cityName.textContent = data.location.name;
               console.log(data.current.temp_c)
+              weatherTemperature.textContent = data.current.temp_c;
               console.log(data.current.condition.text)
+              weatherDescription.textContent = data.current.condition.text;
             console.log(data);
         })
         console.log(apiUrl);
